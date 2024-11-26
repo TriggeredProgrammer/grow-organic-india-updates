@@ -1,0 +1,73 @@
+/* src/pages/About/style.css */
+
+/* About Section Styling */
+.about-section {
+    background-color: #f9f9f9; /* Light background for better contrast */
+  }
+  
+  /* Text Content Styling */
+  .about-section .text-content h1 {
+    font-size: 2.5rem;
+    color: #1a7f4b; /* Dark green for primary heading */
+  }
+  
+  .about-section .text-content h2 {
+    font-size: 1.75rem;
+    color: #ff7f2a; /* Bright orange for sub-heading */
+  }
+  
+  .about-section .text-content p {
+    color: #4a4a4a; /* Dark gray for text */
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-top: 1rem;
+    text-align: justify;
+  }
+  
+  /* Image Container Styling */
+  .about-section .image-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between circular images */
+  }
+  
+  /* Circular Images Styling */
+  .about-section .image-content .relative {
+    transition: transform 0.3s ease;
+  }
+  
+  .about-section .image-content .relative:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+  }
+  
+  .about-section .image-content img {
+    border-radius: 50%;
+    border: 5px solid #e5e5e5; /* Light gray border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .about-section .text-content {
+      padding: 1rem;
+    }
+  
+    .about-section .text-content h1 {
+      font-size: 2rem;
+    }
+  
+    .about-section .text-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .about-section .text-content p {
+      font-size: 1rem;
+    }
+  
+    .about-section .image-content .relative {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+  
