@@ -1,137 +1,148 @@
-/* Base styles */
+/* General container styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background: #f0f5f1;
   color: #333;
 }
 
-.primary {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.primary:hover {
-  background-color: #45a049;
-}
-
-input,
-select {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #4caf50;
-}
-
-/* Container styles */
-form {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form input,
-form select,
-form button {
-  margin-bottom: 15px;
-}
-
-/* Flex container for centering */
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.grow {
-  flex-grow: 1;
-}
-
-.flex {
+/* Register page container */
+.register-container {
   display: flex;
-}
-
-.items-center {
+  justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.justify-around {
-  justify-content: space-around;
+/* Title Styling */
+.register-title {
+  text-align: center;
+  color: #2b7a5d;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-/* Media queries for responsiveness */
+/* Register form */
+.register-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+/* Form inputs and selects */
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Focused input and select */
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #2b7a5d;
+  outline: none;
+  box-shadow: 0 0 8px rgba(43, 122, 93, 0.5);
+}
+
+/* Register button */
+.register-button {
+  background: #2b7a5d;
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.register-button:hover {
+  background: #21694d;
+}
+
+/* Footer with login link */
+.register-footer {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+}
+
+/* Styling for the login link */
+.register-link {
+  color: #2b7a5d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Success container for registration success */
+.success-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.success-link {
+  color: #2b7a5d;
+  font-weight: bold;
+}
+
+/* Media Queries for responsiveness */
 @media (max-width: 768px) {
-  .mt-4 {
-    margin-top: 0.5rem;
+  .register-title {
+    font-size: 2rem;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .register-form {
+    padding: 20px;
+    max-width: 90%;
   }
 
-  form {
-    padding: 15px;
+  .register-button {
+    font-size: 1.1rem;
   }
 
-  input,
-  select,
-  button {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .primary {
-    font-size: 14px;
-    padding: 8px 16px;
+  .register-footer {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-  .mb-64 {
-    margin-bottom: 32px;
+  .register-title {
+    font-size: 1.8rem;
   }
 
-  h1 {
-    font-size: 1.25rem;
+  .register-form {
+    padding: 15px;
+    max-width: 95%;
   }
 
-  form {
+  .register-form input,
+  .register-form select {
     padding: 10px;
+    font-size: 0.95rem;
   }
 
-  input,
-  select,
-  button {
-    font-size: 12px;
-    padding: 6px;
+  .register-button {
+    padding: 12px;
+    font-size: 1rem;
   }
 
-  .primary {
-    font-size: 12px;
-    padding: 6px 12px;
+  .register-footer {
+    font-size: 0.85rem;
   }
-}
-
-/* Link styles */
-a {
-  text-decoration: none;
-  color: #4caf50;
-}
-
-a:hover {
-  text-decoration: underline;
 }

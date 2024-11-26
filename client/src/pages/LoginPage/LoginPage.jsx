@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
-import './style.css';
-
+import "./style.css";
 
 export default function LoginPage() {
-  const [loginId, setLoginId] = useState(""); // Replace email with loginId
+  const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
 
@@ -13,16 +12,17 @@ export default function LoginPage() {
     ev.preventDefault();
     try {
       const response = await axios.post("/login", { loginId, password });
-
       if (response.status === 200) {
         alert("Login successful");
+        localStorage.setItem("isLoggedIn", "true");
         setRedirect(true);
       }
     } catch (err) {
       if (err.response) {
-        if (err.response.status === 404) {
+        const { status } = err.response;
+        if (status === 404) {
           alert("User not found. Please register.");
-        } else if (err.response.status === 401) {
+        } else if (status === 401) {
           alert("Invalid password. Please try again.");
         } else {
           alert("Login failed. Please try again later.");
@@ -34,19 +34,21 @@ export default function LoginPage() {
   }
 
   if (redirect) {
-    return <Navigate to={"/"} />;
+    return <Navigate to="/dashboard" />;
   }
 
   return (
-    <div className="mt-4 grow flex items-center justify-around">
-      <div className="mb-64">
-        <h1 className="text-4xl text-center">Login</h1>
-        <form className="max-w-md mx-auto" onSubmit={handleLoginSubmit}>
+    <div className="login-container">
+      <div className="login-card">
+        <h1 className="login-title">Welcome Back</h1>
+        <p className="login-subtitle">Please login to your account</p>
+        <form className="login-form" onSubmit={handleLoginSubmit}>
           <input
             type="text"
             value={loginId}
             onChange={(ev) => setLoginId(ev.target.value)}
             placeholder="Your Login ID"
+            className="login-input"
             required
           />
           <input
@@ -54,12 +56,13 @@ export default function LoginPage() {
             value={password}
             onChange={(ev) => setPassword(ev.target.value)}
             placeholder="Password"
+            className="login-input"
             required
           />
-          <button className="primary">Login</button>
-          <div className="text-center py-2 text-gray-500">
-            Don have an account yet?
-            <Link className="underline text-black" to="/register">
+          <button className="login-button">Login</button>
+          <div className="login-footer">
+            Don’t have an account?{" "}
+            <Link className="login-link" to="/register">
               Register Now
             </Link>
           </div>

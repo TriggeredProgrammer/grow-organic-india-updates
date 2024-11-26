@@ -17,7 +17,13 @@ export default function Header() {
             d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
           />
         </svg>
+
+        {/* this line distrubing the navbar update this   */}
         <span className="font-bold text-xl">Grow Organic India</span>
+
+
+
+
       </a>
       <div className="flex gap-2 border border-gray-300 rounded-full px-4  py-2 shadow-md shadow-gray-300">
         <Link to={'/'}>Home</Link>
@@ -25,9 +31,9 @@ export default function Header() {
         <Link to={'/about'}>About us </Link>
         <div className="border-l border-gray-300"></div>
         <Link to={'/contact'}>Contact</Link>
-        <div className="border-l border-gray-300"></div>
+        {/* <div className="border-l border-gray-300"></div> */}
 
-        <button className="bg-primary text-white p-1 rounded-full">
+        {/* <button className="bg-primary text-white p-1 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,7 +48,7 @@ export default function Header() {
               d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
       <Link
         to={"/login"}

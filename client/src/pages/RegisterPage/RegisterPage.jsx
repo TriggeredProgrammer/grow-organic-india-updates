@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import './style.css';
+import "./style.css";
+
 export default function RegisterPage() {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
@@ -57,10 +58,10 @@ export default function RegisterPage() {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:4000/register", {
+      const response = await axios.post("/register", {
         name,
         position,
-        state,
+        country: state,
         mobile,
         email,
         password,
@@ -78,12 +79,12 @@ export default function RegisterPage() {
 
   if (redirect) {
     return (
-      <div className="text-center">
+      <div className="success-container">
         <h1>Registration Successful!</h1>
         <p>
           Your Sponsor ID is: <strong>{generatedId}</strong>
         </p>
-        <Link to="/login" className="underline text-blue-600">
+        <Link to="/login" className="success-link">
           Go to Login
         </Link>
       </div>
@@ -91,79 +92,77 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="mt-4 grow flex items-center justify-around">
-      <div className="mb-64">
-        <h1 className="text-4xl text-center">Create an Account</h1>
-        <form className="max-w-md mx-auto" onSubmit={handleRegisterSubmit}>
-          <input
-            type="text"
-            value={name}
-            onChange={(ev) => setName(ev.target.value)}
-            placeholder="Name"
-            required
-          />
-          <select
-            value={position}
-            onChange={(ev) => setPosition(ev.target.value)}
-            required
-          >
-            <option value="" disabled>
-              Select Position
+    <div className="register-container">
+      {/* <h1 className="register-title">Create an Account</h1> */}
+      <form className="register-form" onSubmit={handleRegisterSubmit}>
+        <input
+          type="text"
+          value={name}
+          onChange={(ev) => setName(ev.target.value)}
+          placeholder="Full Name"
+          required
+        />
+        <select
+          value={position}
+          onChange={(ev) => setPosition(ev.target.value)}
+          required
+        >
+          <option value="" disabled>
+            Select Position
+          </option>
+          <option value="direct">Direct Join</option>
+          {/* <option value="Right">Right</option> */}
+        </select>
+        <select
+          value={state}
+          onChange={(ev) => setState(ev.target.value)}
+          required
+        >
+          <option value="" disabled>
+            Select State
+          </option>
+          {indianStates.map((state, index) => (
+            <option key={index} value={state}>
+              {state}
             </option>
-            <option value="Left">Left</option>
-            <option value="Right">Right</option>
-          </select>
-          <select
-            value={state}
-            onChange={(ev) => setState(ev.target.value)}
-            required
-          >
-            <option value="" disabled>
-              Select State
-            </option>
-            {indianStates.map((state, index) => (
-              <option key={index} value={state}>
-                {state}
-              </option>
-            ))}
-          </select>
-          <input
-            type="tel"
-            value={mobile}
-            onChange={(ev) => setMobile(ev.target.value)}
-            placeholder="Mobile"
-            required
-          />
-          <input
-            type="email"
-            value={email}
-            onChange={(ev) => setEmail(ev.target.value)}
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(ev) => setPassword(ev.target.value)}
-            placeholder="Password"
-            required
-          />
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(ev) => setConfirmPassword(ev.target.value)}
-            placeholder="Confirm Password"
-            required
-          />
-          <button className="primary">Register</button>
-          <div className="text-center py-2 text-gray-500">
-            Already have an account?
-            <Link className="underline text-black" to="/login">
-              Login
-            </Link>
-          </div>
-        </form>
-      </div>
+          ))}
+        </select>
+        <input
+          type="tel"
+          value={mobile}
+          onChange={(ev) => setMobile(ev.target.value)}
+          placeholder="Mobile Number"
+          required
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(ev) => setEmail(ev.target.value)}
+          placeholder="Email Address"
+          required
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(ev) => setPassword(ev.target.value)}
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(ev) => setConfirmPassword(ev.target.value)}
+          placeholder="Confirm Password"
+          required
+        />
+        <button className="register-button">Register</button>
+        <p className="register-footer">
+          Already have an account?{" "}
+          <Link to="/login" className="register-link">
+            Login here
+          </Link>
+        </p>
+      </form>
     </div>
   );
 }
