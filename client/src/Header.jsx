@@ -19,7 +19,7 @@ export default function Header() {
         </svg>
 
         {/* this line distrubing the navbar update this   */}
-        <span className="font-bold text-xl">Grow Organic India</span>
+        {/* <span className="font-bold text-xl">Grow Organic India</span> */}
 
 
 

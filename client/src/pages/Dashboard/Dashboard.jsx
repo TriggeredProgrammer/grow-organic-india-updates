@@ -27,7 +27,9 @@ const Dashboard = () => {
           className="flex items-center justify-between px-4 py-4 cursor-pointer"
           onClick={toggleSidebar}
         >
-          <div className="text-xl font-bold">{isSidebarCollapsed ? "A" : "Admin"}</div>
+          <div className="text-xl font-bold">
+            {isSidebarCollapsed ? "A" : "Admin"}
+          </div>
           {!isSidebarCollapsed && (
             <i className="fas fa-bars text-lg cursor-pointer"></i>
           )}
@@ -63,13 +65,27 @@ const Dashboard = () => {
         {/* Header */}
         <header className="flex justify-between items-center bg-[#f5f5eb] p-4 shadow-md">
           <div className="flex items-center space-x-2">
-            <i className="fas fa-search text-gray-600"></i>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-transparent focus:outline-none"
-            />
+            <button
+              id="topup"
+               className="px-4 py-2 bg-red-500 text-white rounded"
+              onClick={() => {
+                window.location.href = "/topup-id";
+              }}
+            >
+              TopUp
+            </button>
+
+            <button
+              id="topup"
+               className="px-4 py-2 bg-red-500 text-white rounded"
+              onClick={() => {
+                window.location.href = "/add-member";
+              }}
+            >
+              Add member
+            </button>
           </div>
+
           <div className="flex items-center space-x-4">
             <i className="fas fa-bell text-gray-600 cursor-pointer"></i>
             <i className="fas fa-user-circle text-gray-600 cursor-pointer"></i>
@@ -86,27 +102,27 @@ const Dashboard = () => {
         <main className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-[#224b3a] text-white p-4 rounded shadow-lg">
             <h4 className="text-lg">Total Balance</h4>
-            <h2 className="text-3xl font-bold">$4,156.45</h2>
+            <h2 className="text-3xl font-bold">0</h2>
           </div>
           <div className="bg-[#224b3a] text-white p-4 rounded shadow-lg">
             <h4 className="text-lg">Income</h4>
-            <h2 className="text-3xl font-bold">$3,146.45</h2>
+            <h2 className="text-3xl font-bold">0</h2>
           </div>
           <div className="bg-[#224b3a] text-white p-4 rounded shadow-lg">
             <h4 className="text-lg">Expenses</h4>
-            <h2 className="text-3xl font-bold">$1,146.45</h2>
+            <h2 className="text-3xl font-bold">0</h2>
           </div>
           <div className="bg-[#224b3a] text-white p-4 rounded shadow-lg">
             <h4 className="text-lg">All Profits</h4>
-            <h2 className="text-3xl font-bold">$4,156.45</h2>
+            <h2 className="text-3xl font-bold">0</h2>
           </div>
           <div className="bg-[#224b3a] text-white p-4 rounded shadow-lg">
             <h4 className="text-lg">Graph</h4>
-            <h2 className="text-3xl font-bold">$3,146.45</h2>
+            <h2 className="text-3xl font-bold">0</h2>
           </div>
           <div className="bg-[#224b3a] text-white p-4 rounded shadow-lg">
             <h4 className="text-lg">User Tree</h4>
-            <h2 className="text-3xl font-bold">$1,146.45</h2>
+            <h2 className="text-3xl font-bold">0</h2>
           </div>
         </main>
       </div>
